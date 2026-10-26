@@ -22,7 +22,7 @@ Contract: `0x684c996abf9346766A30c3f7CaBe369E048DA8bD`.
 
 The website supports wallet signing, assessment submission, finality waiting, immutable record readback and JSON evidence export using genlayer-js 1.1.8. The public Verified Example reads the finalized Salvia nemorosa assessment from chain. The "Consensus only" filter excludes plants without a matching accepted record; its month windows remain editorial planning estimates, clipped to the seasons actually supported by consensus. They are labeled accordingly.
 
-Deployment and the first source assessment both reached FINALIZED / MAJORITY_AGREE. Readback returned MATCH, SUPPORTED, and summer/autumn seasons. Raw receipts and the returned record are retained in `chain-evidence.json`. The verified write cycle used a fresh zero-balance test account with zero gas price. Browser wallet signing still requires a compatible EIP-1193 provider.
+Deployment and the first source assessment both reached FINALIZED / MAJORITY_AGREE. Readback returned MATCH, SUPPORTED, and summer/autumn seasons. Receipt fields and the returned record are retained in `chain-evidence.json`. The verified write cycle used a fresh zero-balance test account with zero gas price. Browser wallet signing still requires a compatible EIP-1193 provider.
 
 Deployment transaction: `0x57ac5996f5e5e6a8c8cc87cbe4f16aef88a2569ad943bc35a2bc28448d5816ba`.
 
