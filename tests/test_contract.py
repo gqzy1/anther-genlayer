@@ -1,0 +1,21 @@
+"""Offline invariants; these checks do not emulate GenVM or consensus."""
+import ast
+import unittest
+from pathlib import Path
+module = ast.parse(Path('contracts/anther.py').read_text())
+subset = ast.Module(body=[n for n in module.body if isinstance(n, (ast.Assign, ast.FunctionDef))], type_ignores=[])
+ns = {}
+exec(compile(subset, '<normalization>', 'exec'), ns)
+normalize = ns['normalize']
+class NormalizationTests(unittest.TestCase):
+    def test_unknown_never_contributes_seasons(self):
+        self.assertEqual(normalize({'identity':'UNKNOWN','pollinator':'SUPPORTED','seasons':['summer']})['seasons'], [])
+    def test_mismatch_never_contributes_seasons(self):
+        self.assertEqual(normalize({'identity':'MISMATCH','pollinator':'SUPPORTED','seasons':['summer']})['seasons'], [])
+    def test_canonical_season_equivalence(self):
+        self.assertEqual(normalize({'identity':'MATCH','pollinator':'SUPPORTED','seasons':['summer','spring','summer']})['seasons'], ['spring','summer'])
+    def test_hallucinated_season_fails(self):
+        with self.assertRaises(ValueError):normalize({'identity':'MATCH','pollinator':'SUPPORTED','seasons':['year-round']})
+    def test_unexpected_fields_fail(self):
+        with self.assertRaises(ValueError):normalize({'identity':'MATCH','pollinator':'SUPPORTED','seasons':[],'override':True})
+if __name__ == '__main__': unittest.main()

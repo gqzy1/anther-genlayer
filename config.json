@@ -1,0 +1,11 @@
+{
+  "chainId": 61999,
+  "contractAddress": "0x684c996abf9346766A30c3f7CaBe369E048DA8bD",
+  "verifiedExamples": [
+    {
+      "owner": "0xc90F04ef8fe12a008954f80A186F752061EcaB97",
+      "url": "https://www.rhs.org.uk/plants/60176/salvia-nemorosa/details",
+      "hash": "0xacb2f840ad4b53a1e69b92e248fbd30588bb1ffa9f9ff43e5ce26ecba35bb8b6"
+    }
+  ]
+}

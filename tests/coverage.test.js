@@ -1,0 +1,8 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {coverage,consensusCoverage,PLANTS,validateSource} from '../engine.js';
+test('empty garden leaves every month open',()=>assert.equal(coverage([]).filter(x=>!x.plants.length).length,9));
+test('overlapping plants count a month once and preserve contributors',()=>{const c=coverage(['salvia','ivy']);assert.equal(c.filter(x=>x.plants.length).length,5);assert.deepEqual(c.find(x=>x.month===9).plants,['salvia','ivy']);});
+test('example preserves the spring gap',()=>assert.deepEqual(coverage(['crocus','salvia']).filter(x=>!x.plants.length).map(x=>x.month),[4,5,10]));
+test('source rejects impersonation and malformed URLs',()=>{for(const u of ['http://www.rhs.org.uk/plants/x','https://www.rhs.org.uk.evil.org/plants/x','https://www.rhs.org.uk@evil.org/plants/x','https://www.rhs.org.uk/plants/x?q=1','bad'])assert.equal(validateSource(u),false);assert.equal(validateSource('https://www.rhs.org.uk/plants/60176/salvia-nemorosa/details'),true);});
+
+test('consensus coverage excludes unsupported autumn months',()=>{const p=PLANTS.find(x=>x.id==='salvia');const records=new Map([[p.source,{accepted:true,plant:p.latin,url:p.source,assessment:{seasons:['summer']}}]]);assert.deepEqual(consensusCoverage(['salvia'],records).filter(x=>x.plants.length).map(x=>x.month),[6,7,8]);});
+test('consensus coverage excludes a taxon mismatch',()=>{const p=PLANTS[0];const records=new Map([[p.source,{accepted:true,plant:'Wrong species',url:p.source,assessment:{seasons:['spring']}}]]);assert.equal(consensusCoverage([p.id],records).filter(x=>x.plants.length).length,0);});
