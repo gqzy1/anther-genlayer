@@ -1,11 +1,11 @@
 {
   "chainId": 61999,
-  "contractAddress": "0x684c996abf9346766A30c3f7CaBe369E048DA8bD",
+  "contractAddress": "0x9D6EA733ebe818251412e86aA3db1b79D8F70497",
   "verifiedExamples": [
     {
-      "owner": "0xc90F04ef8fe12a008954f80A186F752061EcaB97",
-      "url": "https://www.rhs.org.uk/plants/60176/salvia-nemorosa/details",
-      "hash": "0xacb2f840ad4b53a1e69b92e248fbd30588bb1ffa9f9ff43e5ce26ecba35bb8b6"
+      "owner": "0x885C0C092Bd6bFa23aA8cA916fC6E2F395F08aB6",
+      "url": "https://www.rhs.org.uk/plants/384211/salvia-rosmarinus-ro/details",
+      "hash": "0x1d0db2738ff90f2d09809ce9063ba44457da73b7a02279c1644396664f274790"
     }
   ]
 }

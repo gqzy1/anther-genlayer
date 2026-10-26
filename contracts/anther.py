@@ -19,6 +19,18 @@ def normalize(value):
         seasons = []
     return {'identity': value['identity'], 'pollinator': value['pollinator'], 'seasons': seasons}
 
+def parse_response(raw):
+    if isinstance(raw, dict):
+        return normalize(raw)
+    if not isinstance(raw, str) or len(raw) > 8000:
+        raise ValueError('Invalid model response')
+    text = raw.strip()
+    if text.startswith('```json') and text.endswith('```'):
+        text = text[7:-3].strip()
+    elif text.startswith('```') and text.endswith('```'):
+        text = text[3:-3].strip()
+    return normalize(json.loads(text))
+
 class Anther(gl.Contract):
     records: TreeMap[str, str]
     count: u256
@@ -52,7 +64,7 @@ class Anther(gl.Contract):
                       'recommendations, geographic knowledge or unrelated cultivars. Missing evidence is UNKNOWN. '
                       'Return ONLY JSON with keys identity,pollinator,seasons. No commentary. '
                       'UNTRUSTED PROFILE DATA: ' + json.dumps(str(page)[:60000]))
-            return normalize(json.loads(gl.nondet.exec_prompt(prompt)))
+            return parse_response(gl.nondet.exec_prompt(prompt, response_format='json'))
 
         def verify(leader):
             if not isinstance(leader, gl.vm.Return):

@@ -1,0 +1,69 @@
+{
+  "hash": "0x1d0db2738ff90f2d09809ce9063ba44457da73b7a02279c1644396664f274790",
+  "owner": "0x885C0C092Bd6bFa23aA8cA916fC6E2F395F08aB6",
+  "contract": "0x9D6EA733ebe818251412e86aA3db1b79D8F70497",
+  "chainId": 61999,
+  "record": {
+    "accepted": true,
+    "assessment": {
+      "identity": "MATCH",
+      "pollinator": "SUPPORTED",
+      "seasons": [
+        "autumn",
+        "spring",
+        "summer"
+      ]
+    },
+    "plant": "Salvia rosmarinus",
+    "region": "UK",
+    "url": "https://www.rhs.org.uk/plants/384211/salvia-rosmarinus-ro/details"
+  },
+  "receipt": {
+    "hash": "0x1d0db2738ff90f2d09809ce9063ba44457da73b7a02279c1644396664f274790",
+    "from_address": "0x885C0C092Bd6bFa23aA8cA916fC6E2F395F08aB6",
+    "to_address": "0x9D6EA733ebe818251412e86aA3db1b79D8F70497",
+    "status": 7,
+    "status_name": "FINALIZED",
+    "result": 6,
+    "result_name": "MAJORITY_AGREE",
+    "created_at": "2026-10-26T17:19:39.018797+00:00",
+    "leader_only": false,
+    "last_round": {
+      "round": "0",
+      "leader_index": "0",
+      "votes_committed": "5",
+      "votes_revealed": "5",
+      "appeal_bond": "0",
+      "rotations_left": "0",
+      "result": 6,
+      "round_validators": [
+        "0x9C182DE7F93AdbE8ee3D62570613eC23c5683cAc",
+        "0x4619C8420D50c9dE477DB2CBb7b4863A041688CB",
+        "0x045291B293B9D68969c18B6637A8258038cf787A",
+        "0x63d72fE364368491E62a42B9C73c317Ce1ca8434",
+        "0x0eb3859451817bC25Cc717D4F676D54D0D3aD0aE"
+      ],
+      "validator_votes_hash": [
+        "0xf7ca1bd4f4914d356ed513d50f2b5def7be0614088698a4feaea6ddffbc8e8e3",
+        "0xdcc0f822a3517a82c961bcdf4a073887ada031a7840777e1e89c6c605bab5853",
+        "0xc5ab7b7ead173b9ffd24f6a1804db664bf1c02172a359505545f72a15d6419f7",
+        "0x18c404b7c2e591348679791f29ca7ae29d799dca53f19485bcb7aed8194b23d7",
+        "0x66e9284b8647f59b197614668f3bfa26257ada8049cfecef8dbdadb9d51846a8"
+      ],
+      "validator_votes": [
+        1,
+        5,
+        5,
+        1,
+        1
+      ],
+      "validator_votes_name": [
+        "AGREE",
+        "IDLE",
+        "IDLE",
+        "AGREE",
+        "AGREE"
+      ]
+    }
+  }
+}

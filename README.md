@@ -8,6 +8,10 @@ An evidence-led pollinator bloom relay atelier. Select plants, inspect source no
 
 Serve the repository root with any static HTTP server, for example `python -m http.server 8000 `. No installation or API key is required. `npm test` runs deterministic coverage and source-validation checks.
 
+## Quick start
+
+See [DEMO.md](DEMO.md). Use **Use free test wallet**, then **Assess with GenLayer** once. After finality, download the assessment evidence. A wallet extension is optional; the session key stays in the browser tab. Do not fund this test wallet.
+
 ## Evidence model
 
 The example collection links to Royal Horticultural Society profiles. Month ranges are explicitly editorial approximations of seasonal descriptions under UK conditions; they are not observed dates, exact guarantees, or onchain attestations. Climate, care, maturity and cultivar matter. Exported plans retain that distinction.
@@ -18,17 +22,19 @@ The example collection links to Royal Horticultural Society profiles. Month rang
 
 Stable Studionet only: chain ID 61999, RPC `https://studio.genlayer.com/api`.
 
-Contract: `0x684c996abf9346766A30c3f7CaBe369E048DA8bD`.
+Contract: `0x9D6EA733ebe818251412e86aA3db1b79D8F70497`.
 
-The website supports wallet signing, assessment submission, finality waiting, immutable record readback and JSON evidence export using genlayer-js 1.1.8. The public Verified Example reads the finalized Salvia nemorosa assessment from chain. The "Consensus only" filter excludes plants without a matching accepted record; its month windows remain editorial planning estimates, clipped to the seasons actually supported by consensus. They are labeled accordingly.
+The website supports wallet signing, assessment submission, finality waiting, immutable record readback and JSON evidence export using genlayer-js 1.1.8. The public Verified Example reads the finalized Salvia rosmarinus assessment from chain. The "Consensus only" filter excludes plants without a matching accepted record; its month windows remain editorial planning estimates, clipped to the seasons actually supported by consensus. They are labeled accordingly.
 
-Deployment and the first source assessment both reached FINALIZED / MAJORITY_AGREE. Readback returned MATCH, SUPPORTED, and summer/autumn seasons. Receipt fields and the returned record are retained in `chain-evidence.json`. The verified write cycle used a fresh zero-balance test account with zero gas price. Browser wallet signing still requires a compatible EIP-1193 provider.
+The active deployment and browser source assessment both reached FINALIZED / MAJORITY_AGREE. Readback returned MATCH, SUPPORTED, and spring/summer/autumn seasons. Receipt fields and the returned record are retained in `chain-evidence.json`. The verified write cycle used a fresh zero-balance test account with zero gas price. The browser session-wallet flow completes submission, finality, readback and JSON export without an extension. External wallets require a compatible EIP-1193 provider.
 
-Deployment transaction: `0x57ac5996f5e5e6a8c8cc87cbe4f16aef88a2569ad943bc35a2bc28448d5816ba`.
+Deployment transaction: `0x5b27ec2591b856d716eeae803c9e117568c6d344052cac7d59e421d963057c32`.
 
-Assessment transaction: `0xacb2f840ad4b53a1e69b92e248fbd30588bb1ffa9f9ff43e5ce26ecba35bb8b6`.
+Assessment transaction: `0x1d0db2738ff90f2d09809ce9063ba44457da73b7a02279c1644396664f274790`.
 
 Pending transaction hashes are retained locally. Repeating the same source resumes tracking without sending another transaction. Account changes and nonzero gas prices stop submission.
+
+Version 0.2.0 uses structured JSON response mode and explicit fenced-JSON normalization. Legacy V1 transactions, including a failed JSON parse, are retained under `legacyV1` in the evidence file. The active address is the one above.
 
 ## Files
 
